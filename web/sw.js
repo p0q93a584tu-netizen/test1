@@ -20,7 +20,17 @@ self.addEventListener("fetch", (event) => {
           });
         }
         req = await fetch(event.request);
-        return req;
+
+const headers = new Headers(req.headers);
+headers.set("Cross-Origin-Embedder-Policy", "require-corp");
+headers.set("Cross-Origin-Opener-Policy", "same-origin");
+
+return new Response(req.body, {
+  status: req.status,
+  statusText: req.statusText,
+  headers: headers
+});
+
       } catch (e) {
         console.log("error", e);
         return new Response("Worker error", {
