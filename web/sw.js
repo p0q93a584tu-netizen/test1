@@ -44,7 +44,7 @@ return new Response(req.body, {
 
 async function installCache() {
   const cache = await caches.open("v1");
-  const boot = await fetch("_framework/blazor.boot.json");
+  const boot = await fetch("/test1/web/_framework/blazor.boot.json");
   const bootjson = await boot.json();
   let resources = [
     "./",
