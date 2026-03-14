@@ -48,14 +48,14 @@ async function installCache() {
   const boot = await fetch("/test1/web/_framework/blazor.boot.json");
   const bootjson = await boot.json();
   let resources = [
-    "./",
-    "./MILESTONE",
-    "./_framework/blazor.boot.json",
-    "./app.ico",
-    "./backdrop.png",
-    "./AndyBold.ttf",
-    "./assets/index.js",
-    "./assets/index.css",
+    "/test1/web/",
+    "/test1/web/MILESTONE",
+    "/test1/web/_framework/blazor.boot.json",
+    "/test1/web/app.ico",
+    "/test1/web/backdrop.png",
+    "/test1/web/AndyBold.ttf",
+    "/test1/web/assets/index.js",
+    "/test1/web/assets/index.css",
     ...Object.keys(bootjson.resources.fingerprinting).map(
       (r) => "_framework/" + r,
     ),
