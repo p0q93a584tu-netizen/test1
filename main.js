@@ -1,12 +1,13 @@
-// main.js
 if ("serviceWorker" in navigator) {
-  // Register service worker
   navigator.serviceWorker.register(new URL("./coisw.js", import.meta.url)).then(
     function (registration) {
       console.log("COOP/COEP Service Worker registered", registration.scope);
-      // If the registration is active, but it's not controlling the page
+
       if (registration.active && !navigator.serviceWorker.controller) {
+        if (!sessionStorage.getItem("coiReloaded")) {
+          sessionStorage.setItem("coiReloaded", "true");
           window.location.reload();
+        }
       }
     },
     function (err) {
