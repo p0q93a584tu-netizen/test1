@@ -3,7 +3,17 @@
 <head>
   <meta charset="UTF-8"/>
   <title>My COI Page</title>
-  <script src="/coi-serviceworker.js"></script>
+  <script>
+window.coi = {
+  shouldRegister: () => true,
+  shouldDeregister: () => false,
+  coepCredentialless: () => true,
+  coepDegrade: () => true,
+  doReload: () => window.location.reload(),
+  quiet: false
+};
+</script>
+  <script src="coi-serviceworker.js"></script>
 </head>
 <body>
   <a href="/web/index.html">link</a>
